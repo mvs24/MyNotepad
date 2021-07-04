@@ -1,0 +1,152 @@
+swagger: "2.0"
+info:
+  description: "This is the API for MyNotepad Project"
+  version: "1.0.0"
+  title: "MyNotepad"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "mariusvasili24@gmail.com"
+host: localhost:3050
+basePath: /api/v1
+schemes:
+  - "http"
+paths:
+  /users/signup:
+    post:
+      tags:
+        - "signup"
+      summary: "Register new user"
+      operationId: "signupUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          description: "Register new user"
+  /users/login:
+    post:
+      tags:
+        - "login"
+      summary: "Login new user"
+      operationId: "loginUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: user
+          description: The user to login.
+          schema:
+            type: object
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          description: "Login new user"
+  /notes:
+    get:
+      tags:
+        - "get all notes"
+      summary: "Get all notes for logged in user"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Get all notes for logged in user"
+    post:
+      tags:
+        - "create new note"
+      summary: "Create new note for logged in user"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: note
+          description: The note to create.
+          schema:
+            type: object
+            required:
+              - title
+              - content
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+      responses:
+        "200":
+          description: "Create new note for logged in user"
+  /notes/{id}:
+    patch:
+      tags:
+        - "Update specific note"
+      summary: "Update scpecific note based on id"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          type: "integer"
+          description: "Id of the note"
+          required: true
+        - in: body
+          name: note
+          description: The note to create.
+          schema:
+            type: object
+            required:
+              - title
+              - content
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+      responses:
+        "200":
+          description: "Update specific note based on id for logged in user"
+    get:
+      tags:
+        - "Get specific note"
+      summary: "Get scpecific note based on id"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          type: "integer"
+          description: "Id of the note"
+          required: true
+      responses:
+        "200":
+          description: "Get specific note based on id for logged in user"

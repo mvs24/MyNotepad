@@ -1,0 +1,40 @@
+.firstHeading {
+  display: flex;
+  padding: 10px;
+}
+.notepadContainer {
+  display: flex;
+  padding: 10px;
+}
+
+.firstNotepadColumn {
+  flex: 0 0 30%;
+  padding: 20px;
+  border: 1px solid black;
+  max-height: 65vh;
+  overflow-y: scroll;
+}
+.secondNotepadColumn {
+  flex: 1;
+  width: 90%;
+  min-height: 100%;
+}
+
+.secondNotepadColumn textarea {
+  width: 90%;
+  height: 100%;
+}
+.note {
+  cursor: pointer;
+  border: 0.1px solid gray;
+  font-size: 15;
+  padding: 12px;
+  margin-top: 7px;
+}
+.notepadHeading {
+  padding-left: 25%;
+}
+.saveBtnContainer {
+  text-align: right;
+  margin-right: 6rem;
+}

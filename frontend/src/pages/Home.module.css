@@ -1,0 +1,10 @@
+.signupLoginContainerButton {
+  display: flex;
+  padding: 10px;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  padding-left: 3rem;
+  justify-content: space-between;
+}
